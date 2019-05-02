@@ -1,7 +1,12 @@
 <?php require_once './template/header.php'; ?>
+<?php
+esta_logado();
+?>
 
 <div class="container">
     <div class="row">
+        <a class="btn btn-primary btn=-sm" href="<?= base_url('formulario_contato.php'); ?>">Novo contato</a>
+        <hr>
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-body no-padding">
