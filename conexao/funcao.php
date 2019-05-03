@@ -1,23 +1,32 @@
 <?php
+
+function delete($id) {
+	$sql = "DELETE FROM agendas WHERE id_agenda = ?";
+	$stmt = pdo()->prepare($sql);
+	$stmt->bindValue(1, $id);
+	$stmt->execute();
+}
+
+
 function inserir_novo_contato($id, $empresa_agenda, $CNPJCPF_agenda, $contato_agenda, $email_agenda, $fone1_agenda, $fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, $operacao_agenda, $observacao_agenda){
     $sql = "INSERT INTO agendas (usuario_id, empresa_agenda, CNPJCPF_agenda, contato_agenda, email_agenda, fone1_agenda, 
     fone2_agenda, fone3_agenda, nbanco_agenda, nomebanco_agenda, agencia_agenda, conta_agenda, operacao_agenda, 
     observacao_agenda) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $stmt = pdo ()->prepare($sql);
-    $stmt->binValue(1,$id);
-    $stmt->binValue(2,$empresa_agenda);
-    $stmt->binValue(3,$CNPJCPF_agenda);
-    $stmt->binValue(4,$contato_agenda);
-    $stmt->binValue(5,$email_agenda);
-    $stmt->binValue(6,$fone1_agenda);
-    $stmt->binValue(7,$fone2_agenda);
-    $stmt->binValue(8,$fone3_agenda);
-    $stmt->binValue(9,$nbanco_agenda);
-    $stmt->binValue(10,$nomebanco_agenda);
-    $stmt->binValue(11,$agencia_agenda);
-    $stmt->binValue(12,$conta_agenda);
-    $stmt->binValue(13,$operacao_agenda);
-    $stmt->binValue(14,$observacao_agenda);
+    $stmt->bindValue(1,$id);
+    $stmt->bindValue(2,$empresa_agenda);
+    $stmt->bindValue(3,$CNPJCPF_agenda);
+    $stmt->bindValue(4,$contato_agenda);
+    $stmt->bindValue(5,$email_agenda);
+    $stmt->bindValue(6,$fone1_agenda);
+    $stmt->bindValue(7,$fone2_agenda);
+    $stmt->bindValue(8,$fone3_agenda);
+    $stmt->bindValue(9,$nbanco_agenda);
+    $stmt->bindValue(10,$nomebanco_agenda);
+    $stmt->bindValue(11,$agencia_agenda);
+    $stmt->bindValue(12,$conta_agenda);
+    $stmt->bindValue(13,$operacao_agenda);
+    $stmt->bindValue(14,$observacao_agenda);
     $stmt->execute();
     if ($stmt->rowCount()) {
 		$_SESSION['menssagem'] = ' <p class="alert alert-success text-center"> Cadastrado com sucesso! </p>';

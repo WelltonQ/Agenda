@@ -36,21 +36,17 @@ esta_logado();
 
                                     <!-- PRECISA EDITAR (BOTÕES DE EDITAR E EXCLUIR DA TABELA)-->
                                     <td class="text-center">
-                                        <form method="post" class="label" action="editar" name="loginform">
-                                            <input type="hidden" name="id" value="233">
-                                            <button type="submit" class="btn btn-primary btn-sm" data-context="info" data-position="top-right">
-                                                <span class="glyphicon glyphicon-pencil">
-                                                </span>
-                                            </button>
-                                        </form>
+                                        <button type="submit" class="btn btn-primary btn-sm" data-context="info" data-position="top-right">
+                                            <span class="glyphicon glyphicon-pencil">
+                                            </span>
+                                        </button>
 
-                                        <form method="post" class="label" action="excluir" name="loginform">
-                                            <input type="hidden" name="id" value="233">
+                                        <a href="./deletar.php?id=<?= $v->id_agenda ?>">
                                             <button type="submit" class="btn btn-danger btn-sm" data-context="info" data-position="top-right">
                                                 <span class="glyphicon glyphicon-trash">
                                                 </span>
                                             </button>
-                                        </form>
+                                        </a>
                                     </td>
 
 
@@ -60,6 +56,12 @@ esta_logado();
                             <?php endforeach ?>
 
                         </tbody>
+                        <?php
+                        if (isset($_SESSION['menssagem'])) {
+                            echo $_SESSION['menssagem'];
+                            unset($_SESSION['menssagem']);
+                        }
+                        ?>
                     </table>
                 </div>
             </div>

@@ -1,4 +1,5 @@
-<?php require_once './template/header.php';
+<?php 
+require_once './template/header.php';
 esta_logado();
 ?>
 <div class="container-fluid">
@@ -36,11 +37,11 @@ esta_logado();
 
                         <div class="form-row">
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="n_banco_agenda" placeholder="Nº Banco">
+                                <input type="text" class="form-control" name="nbanco_agenda" placeholder="Nº Banco">
                             </div>
 
                             <div class="form-group col-md-4">
-                                <select id="inputState" class="form-control" name="nome_banco">
+                                <select id="inputState" class="form-control" name="nomebanco_agenda">
                                     <option selected>BANCO DO BRASIL</option>
                                     <option>BRADESCO</option>
                                     <option>CAIXA ECONÔMICA FEDERAL</option>
@@ -89,6 +90,8 @@ esta_logado();
 </div>
 
 <?php
+
+
 if (isset($_POST['empresa_agenda']) && !empty($_POST['empresa_agenda'])) {
     $id = ID_USER;
     $empresa_agenda = trim($_POST['empresa_agenda']);
