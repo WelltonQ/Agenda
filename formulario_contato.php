@@ -90,8 +90,6 @@ esta_logado();
 </div>
 
 <?php
-
-
 if (isset($_POST['empresa_agenda']) && !empty($_POST['empresa_agenda'])) {
     $id = ID_USER;
     $empresa_agenda = trim($_POST['empresa_agenda']);
@@ -112,12 +110,12 @@ if (isset($_POST['empresa_agenda']) && !empty($_POST['empresa_agenda'])) {
     $fone1_agenda, $fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, 
     $operacao_agenda, $observacao_agenda);
     if ($resultado) {
-        header("location: formulario_contato.php");
+        return ' <p class="alert alert-success text-center"> Cadastrado com sucesso! </p>';
     } else {
-        header("location: formulario_contato.php");
+        return '<p class="alert alert-danger text-center">Erro, não foi possivel cadastrar!</p>';
     }
 }
+
+
+require_once './template/footer.php'; 
 ?>
-
-
-<?php require_once './template/footer.php'; ?>

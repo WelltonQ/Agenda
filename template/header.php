@@ -12,7 +12,6 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title></title>
     <link rel="stylesheet" type="text/css" href="">
     <link rel="stylesheet" href="<?= base_url('assets/node_modules/bootstrap/dist/css/bootstrap.min.css') ?>">
@@ -20,7 +19,7 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
 </head>
 
 <body>
-
+<?php if (isset($_SESSION['usuario_logado']->id_usuario) && !empty($_SESSION['usuario_logado']->id_usuario)): ?>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default">
         <div class="container">
@@ -58,3 +57,4 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
             <!--/.nav-collapse -->
         </div>
     </nav>
+    <?php endif;?>

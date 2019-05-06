@@ -23,7 +23,7 @@ esta_logado();
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach (seleciona_agenda(ID_USER) as $v) : ?>
+                            <?php foreach (seleciona_agenda(ID_USER) as $v): ?>
                                 <tr>
                                     <td><?= $v->empresa_agenda ?> <br> <?= $v->CNPJCPF_agenda ?></td>
                                     <td><?= $v->contato_agenda ?> <br> <?= $v->email_agenda ?></td>
@@ -33,13 +33,13 @@ esta_logado();
                                     <td><?= $v->observacao_agenda ?></td>
 
 
-
-                                    <!-- PRECISA EDITAR (BOTÕES DE EDITAR E EXCLUIR DA TABELA)-->
                                     <td class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-sm" data-context="info" data-position="top-right">
-                                            <span class="glyphicon glyphicon-pencil">
-                                            </span>
-                                        </button>
+                                        <a href="./editar.php?id=<?= $v->id_agenda ?>">
+                                            <button type="submit" class="btn btn-primary btn-sm" data-context="info" data-position="top-right">
+                                                <span class="glyphicon glyphicon-pencil">
+                                                </span>
+                                            </button>
+                                        </a>
 
                                         <a href="./deletar.php?id=<?= $v->id_agenda ?>">
                                             <button type="submit" class="btn btn-danger btn-sm" data-context="info" data-position="top-right">
@@ -48,21 +48,18 @@ esta_logado();
                                             </button>
                                         </a>
                                     </td>
-
-
-
                                 </tr>
 
-                            <?php endforeach ?>
+                                <?php endforeach; ?>
 
                         </tbody>
-                        <?php
+                    </table>
+                    <?php
                         if (isset($_SESSION['menssagem'])) {
                             echo $_SESSION['menssagem'];
                             unset($_SESSION['menssagem']);
                         }
-                        ?>
-                    </table>
+                    ?>
                 </div>
             </div>
         </div>

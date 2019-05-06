@@ -9,7 +9,7 @@ if (isset($_SESSION['usuario_logado'])) {
 <div class="container" style="margin: 6% auto">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form method="post" action="index.php">
+            <form method="post" action="">
                 <div class="form-group">
                     <input type="text" name="txtEmail" class="form-control">
                 </div>

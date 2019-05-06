@@ -1,5 +1,46 @@
 <?php
 
+function edita($empresa_agenda, $CNPJCPF_agenda, $contato_agenda, $email_agenda, 
+$fone1_agenda, $fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, 
+$operacao_agenda, $observacao_agenda, $id) {
+    $sql = "UPDATE agendas SET empresa_agenda = ?, CNPJCPF_agenda = ?, contato_agenda = ?, email_agenda = ?, fone1_agenda = ?, 
+    fone2_agenda = ?, fone3_agenda = ?, nbanco_agenda = ?, nomebanco_agenda = ?, agencia_agenda = ?, conta_agenda = ?, operacao_agenda = ?, 
+    observacao_agenda = ? WHERE id_agenda = ?";
+    $stmt = pdo()->prepare($sql);
+    $stmt->bindValue(1,$empresa_agenda);
+    $stmt->bindValue(2,$CNPJCPF_agenda);
+    $stmt->bindValue(3,$contato_agenda);
+    $stmt->bindValue(4,$email_agenda);
+    $stmt->bindValue(5,$fone1_agenda);
+    $stmt->bindValue(6,$fone2_agenda);
+    $stmt->bindValue(7,$fone3_agenda);
+    $stmt->bindValue(8,$nbanco_agenda);
+    $stmt->bindValue(9,$nomebanco_agenda);
+    $stmt->bindValue(10,$agencia_agenda);
+    $stmt->bindValue(11,$conta_agenda);
+    $stmt->bindValue(12,$operacao_agenda);
+    $stmt->bindValue(13,$observacao_agenda);
+    $stmt->bindValue(14,$id);
+
+    if ($stmt->execute()) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function select_id($id) {
+	$sql = "SELECT * FROM agendas WHERE id_agenda = ?";
+	$stmt = pdo()->prepare($sql);
+	$stmt->bindValue(1, $id);
+	$stmt->execute();
+	if ($stmt->rowCount() > 0) {
+		return $stmt->fetch(\PDO::FETCH_OBJ);
+	} else {
+		return false;
+	}
+}
+
 function delete($id) {
 	$sql = "DELETE FROM agendas WHERE id_agenda = ?";
 	$stmt = pdo()->prepare($sql);
@@ -8,10 +49,12 @@ function delete($id) {
 }
 
 
-function inserir_novo_contato($id, $empresa_agenda, $CNPJCPF_agenda, $contato_agenda, $email_agenda, $fone1_agenda, $fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, $operacao_agenda, $observacao_agenda){
+function inserir_novo_contato($id, $empresa_agenda, $CNPJCPF_agenda, $contato_agenda, $email_agenda, $fone1_agenda, 
+$fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, $operacao_agenda, 
+$observacao_agenda){
     $sql = "INSERT INTO agendas (usuario_id, empresa_agenda, CNPJCPF_agenda, contato_agenda, email_agenda, fone1_agenda, 
     fone2_agenda, fone3_agenda, nbanco_agenda, nomebanco_agenda, agencia_agenda, conta_agenda, operacao_agenda, 
-    observacao_agenda) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    observacao_agenda) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $stmt = pdo ()->prepare($sql);
     $stmt->bindValue(1,$id);
     $stmt->bindValue(2,$empresa_agenda);
