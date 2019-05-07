@@ -15,6 +15,12 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
     <title></title>
     <link rel="stylesheet" type="text/css" href="">
     <link rel="stylesheet" href="<?= base_url('assets/node_modules/bootstrap/dist/css/bootstrap.min.css') ?>">
+    <style type="text/css">
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    </style>
 
 </head>
 

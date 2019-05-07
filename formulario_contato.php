@@ -110,9 +110,9 @@ if (isset($_POST['empresa_agenda']) && !empty($_POST['empresa_agenda'])) {
     $fone1_agenda, $fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, 
     $operacao_agenda, $observacao_agenda);
     if ($resultado) {
-        return ' <p class="alert alert-success text-center"> Cadastrado com sucesso! </p>';
+        header("location: formulario_contato.php");
     } else {
-        return '<p class="alert alert-danger text-center">Erro, não foi possivel cadastrar!</p>';
+        header("location: formulario_contato.php");
     }
 }
 

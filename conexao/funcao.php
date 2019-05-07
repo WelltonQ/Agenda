@@ -1,25 +1,25 @@
 <?php
 
-function edita($empresa_agenda, $CNPJCPF_agenda, $contato_agenda, $email_agenda, 
-$fone1_agenda, $fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, 
-$operacao_agenda, $observacao_agenda, $id) {
+function edita($empresa, $CNPJCPF, $contato, $email, $fone1, 
+$fone2, $fone3, $nbanco, $nomebanco, $agencia, $conta, $operacao, 
+$observacao, $id) {
     $sql = "UPDATE agendas SET empresa_agenda = ?, CNPJCPF_agenda = ?, contato_agenda = ?, email_agenda = ?, fone1_agenda = ?, 
     fone2_agenda = ?, fone3_agenda = ?, nbanco_agenda = ?, nomebanco_agenda = ?, agencia_agenda = ?, conta_agenda = ?, operacao_agenda = ?, 
     observacao_agenda = ? WHERE id_agenda = ?";
     $stmt = pdo()->prepare($sql);
-    $stmt->bindValue(1,$empresa_agenda);
-    $stmt->bindValue(2,$CNPJCPF_agenda);
-    $stmt->bindValue(3,$contato_agenda);
-    $stmt->bindValue(4,$email_agenda);
-    $stmt->bindValue(5,$fone1_agenda);
-    $stmt->bindValue(6,$fone2_agenda);
-    $stmt->bindValue(7,$fone3_agenda);
-    $stmt->bindValue(8,$nbanco_agenda);
-    $stmt->bindValue(9,$nomebanco_agenda);
-    $stmt->bindValue(10,$agencia_agenda);
-    $stmt->bindValue(11,$conta_agenda);
-    $stmt->bindValue(12,$operacao_agenda);
-    $stmt->bindValue(13,$observacao_agenda);
+    $stmt->bindValue(1,$empresa);
+    $stmt->bindValue(2,$CNPJCPF);
+    $stmt->bindValue(3,$contato);
+    $stmt->bindValue(4,$email);
+    $stmt->bindValue(5,$fone1);
+    $stmt->bindValue(6,$fone2);
+    $stmt->bindValue(7,$fone3);
+    $stmt->bindValue(8,$nbanco);
+    $stmt->bindValue(9,$nomebanco);
+    $stmt->bindValue(10,$agencia);
+    $stmt->bindValue(11,$conta);
+    $stmt->bindValue(12,$operacao);
+    $stmt->bindValue(13,$observacao);
     $stmt->bindValue(14,$id);
 
     if ($stmt->execute()) {
