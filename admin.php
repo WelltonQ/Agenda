@@ -10,6 +10,12 @@ esta_logado();
                     <div class="panel-body no-padding">
                         <a class="btn btn-primary btn=-sm" href="<?= base_url('formulario_contato.php'); ?>">Novo contato</a>
                         <hr>
+                        <?php
+                        if (isset($_SESSION['menssagem'])) {
+                            echo $_SESSION['menssagem'];
+                            unset($_SESSION['menssagem']);
+                        }
+                        ?>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -23,12 +29,20 @@ esta_logado();
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach (seleciona_agenda(ID_USER) as $v) : ?>
+                                <?php foreach (seleciona_agenda(ID_USER) as $v): ?>
                                     <tr>
                                         <td><b><?= $v->empresa_agenda ?></b> <br> <?= $v->CNPJCPF_agenda ?></td>
                                         <td><b><?= $v->contato_agenda ?></b> <br> <?= $v->email_agenda ?></td>
                                         <td class="text-center"><?= $v->fone1_agenda ?><br><?= $v->fone2_agenda ?><br><?= $v->fone3_agenda ?></td>
-                                        <td><?= $v->nbanco_agenda ?> - <?= $v->nomebanco_agenda ?></td>
+                                        <td class="<?php if ($v->nomebanco_agenda == 0) {echo "banco_brasil";} 
+                                        else if ($v->nomebanco_agenda == 1) {echo "banco_bradesco";}
+                                        else if ($v->nomebanco_agenda == 2) {echo "banco_caixa";}
+                                        else if ($v->nomebanco_agenda == 3) {echo "banco_santander";}
+                                        else if ($v->nomebanco_agenda == 4) {echo "banco_sicredi";}
+                                        else if ($v->nomebanco_agenda == 5) {echo "banco_nordeste";}
+                                        else if ($v->nomebanco_agenda == 6) {echo "banco_itau";}
+                                        else if ($v->nomebanco_agenda == 7) {echo "banco_outro";} ?>">
+                                        <?= $v->nbanco_agenda ?> - <?= $v->nomebanco_agenda ?></td>
                                         <td><?= $v->agencia_agenda ?> / <?= $v->conta_agenda ?> / <?= $v->operacao_agenda ?></td>
                                         <td><?= $v->observacao_agenda ?></td>
 
@@ -54,12 +68,7 @@ esta_logado();
 
                             </tbody>
                         </table>
-                        <?php
-                        if (isset($_SESSION['menssagem'])) {
-                            echo $_SESSION['menssagem'];
-                            unset($_SESSION['menssagem']);
-                        }
-                        ?>
+                        
                     </div>
                 </div>
             </div>

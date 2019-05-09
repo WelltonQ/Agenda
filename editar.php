@@ -48,12 +48,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
                         <div class="form-row">
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" name="nbanco_agenda" placeholder="Nº Banco">
+                                <input value="<?php echo $agenda->nbanco_agenda; ?>" type="text" class="form-control" name="nbanco_agenda" placeholder="Nº Banco">
                             </div>
 
                             <div class="form-group col-md-4">
-                                <select class="form-control" name="nomebanco_agenda">
-                                    <option value="0" <?php echo ($agenda->nomebanco_agenda == 0) ? 'selected' : ''; ?> >BANCO DO BRASIL</option>
+                                <select name="nomebanco_agenda" class="form-control">
+                                    <option value="0" <?php echo ($agenda->nomebanco_agenda == 0) ? 'selected' : ''; ?>>BANCO DO BRASIL</option>
                                     <option value="1" <?php echo ($agenda->nomebanco_agenda == 1) ? 'selected' : ''; ?>>BRADESCO</option>
                                     <option value="2" <?php echo ($agenda->nomebanco_agenda == 2) ? 'selected' : ''; ?>>CAIXA ECONÔMICA FEDERAL</option>
                                     <option value="3" <?php echo ($agenda->nomebanco_agenda == 3) ? 'selected' : ''; ?>>SANTANDER</option>

@@ -24,10 +24,13 @@ if (isset($_POST['empresa_agenda'])) {
     $observacao, $id);
     
 	if ($resultado) {
+		$_SESSION['menssagem'] = ' <p class="alert alert-success text-center"> Editado com sucesso! </p>';
 		header("location: admin.php");
 		die();
 	} else {
+		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possivel editar!</p>';
 		header("location: admin.php");
+		die();
 	}
 
 }

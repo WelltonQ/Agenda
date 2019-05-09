@@ -7,20 +7,20 @@ $observacao, $id) {
     fone2_agenda = ?, fone3_agenda = ?, nbanco_agenda = ?, nomebanco_agenda = ?, agencia_agenda = ?, conta_agenda = ?, operacao_agenda = ?, 
     observacao_agenda = ? WHERE id_agenda = ?";
     $stmt = pdo()->prepare($sql);
-    $stmt->bindValue(1,$empresa);
-    $stmt->bindValue(2,$CNPJCPF);
-    $stmt->bindValue(3,$contato);
-    $stmt->bindValue(4,$email);
-    $stmt->bindValue(5,$fone1);
-    $stmt->bindValue(6,$fone2);
-    $stmt->bindValue(7,$fone3);
-    $stmt->bindValue(8,$nbanco);
-    $stmt->bindValue(9,$nomebanco);
-    $stmt->bindValue(10,$agencia);
-    $stmt->bindValue(11,$conta);
-    $stmt->bindValue(12,$operacao);
-    $stmt->bindValue(13,$observacao);
-    $stmt->bindValue(14,$id);
+    $stmt->bindValue(1, $empresa);
+    $stmt->bindValue(2, $CNPJCPF);
+    $stmt->bindValue(3, $contato);
+    $stmt->bindValue(4, $email);
+    $stmt->bindValue(5, $fone1);
+    $stmt->bindValue(6, $fone2);
+    $stmt->bindValue(7, $fone3);
+    $stmt->bindValue(8, $nbanco);
+    $stmt->bindValue(9, $nomebanco);
+    $stmt->bindValue(10, $agencia);
+    $stmt->bindValue(11, $conta);
+    $stmt->bindValue(12, $operacao);
+    $stmt->bindValue(13, $observacao);
+    $stmt->bindValue(14, $id);
 
     if ($stmt->execute()) {
 		return true;
@@ -55,7 +55,7 @@ $observacao_agenda){
     $sql = "INSERT INTO agendas (usuario_id, empresa_agenda, CNPJCPF_agenda, contato_agenda, email_agenda, fone1_agenda, 
     fone2_agenda, fone3_agenda, nbanco_agenda, nomebanco_agenda, agencia_agenda, conta_agenda, operacao_agenda, 
     observacao_agenda) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    $stmt = pdo ()->prepare($sql);
+    $stmt = pdo()->prepare($sql);
     $stmt->bindValue(1,$id);
     $stmt->bindValue(2,$empresa_agenda);
     $stmt->bindValue(3,$CNPJCPF_agenda);
@@ -91,7 +91,7 @@ function seleciona_agenda($idUser) {
     $sql = "SELECT * FROM agendas
     join usuarios
     on usuarios.id_usuario = agendas.usuario_id
-    WHERE id_usuario = ? ";
+    WHERE id_usuario = ? ORDER BY empresa_agenda ASC";
     $stmt = pdo()->prepare($sql);
     $stmt->bindValue(1, $idUser);
     $stmt->execute();
