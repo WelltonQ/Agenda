@@ -53,14 +53,14 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
                             <div class="form-group col-md-4">
                                 <select name="nomebanco_agenda" class="form-control">
-                                    <option value="0" <?php echo ($agenda->nomebanco_agenda == 0) ? 'selected' : ''; ?>>BANCO DO BRASIL</option>
-                                    <option value="1" <?php echo ($agenda->nomebanco_agenda == 1) ? 'selected' : ''; ?>>BRADESCO</option>
-                                    <option value="2" <?php echo ($agenda->nomebanco_agenda == 2) ? 'selected' : ''; ?>>CAIXA ECONÔMICA FEDERAL</option>
-                                    <option value="3" <?php echo ($agenda->nomebanco_agenda == 3) ? 'selected' : ''; ?>>SANTANDER</option>
-                                    <option value="4" <?php echo ($agenda->nomebanco_agenda == 4) ? 'selected' : ''; ?>>BANCO COOPERATIVO SICREDI S. A</option>
-                                    <option value="5" <?php echo ($agenda->nomebanco_agenda == 5) ? 'selected' : ''; ?>>BANCO DO NORDESTE</option>
-                                    <option value="6" <?php echo ($agenda->nomebanco_agenda == 6) ? 'selected' : ''; ?>>ITAU</option>
-                                    <option value="7" <?php echo ($agenda->nomebanco_agenda == 7) ? 'selected' : ''; ?>>OUTRO</option>
+                                    <option value="BANCO DO BRASIL"<?php echo ($agenda->nomebanco_agenda == "BANCO DO BRASIL") ? 'selected' : ''; ?>>BANCO DO BRASIL</option>
+                                    <option value="BRADESCO"<?php echo ($agenda->nomebanco_agenda == "BRADESCO") ? 'selected' : ''; ?>>BRADESCO</option>
+                                    <option value="CAIXA ECONÔMICA FEDERAL"<?php echo ($agenda->nomebanco_agenda == "CAIXA ECONÔMICA FEDERAL") ? 'selected' : ''; ?>>CAIXA ECONÔMICA FEDERAL</option>
+                                    <option value="SANTANDER"<?php echo ($agenda->nomebanco_agenda == "SANTANDER") ? 'selected' : ''; ?>>SANTANDER</option>
+                                    <option value="BANCO COOPERATIVO SICREDI S. A"<?php echo ($agenda->nomebanco_agenda == "BANCO COOPERATIVO SICREDI S. A") ? 'selected' : ''; ?>>BANCO COOPERATIVO SICREDI S. A</option>
+                                    <option value="BANCO DO NORDESTE"<?php echo ($agenda->nomebanco_agenda == "BANCO DO NORDESTE") ? 'selected' : ''; ?>>BANCO DO NORDESTE</option>
+                                    <option value="ITAU"<?php echo ($agenda->nomebanco_agenda == "ITAU") ? 'selected' : ''; ?>>ITAU</option>
+                                    <option value="BANCO DO BRASIL"<?php echo ($agenda->nomebanco_agenda == "OUTRO") ? 'selected' : ''; ?>>OUTRO</option>
                                 </select>
                             </div>
 
