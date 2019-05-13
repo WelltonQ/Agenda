@@ -34,8 +34,8 @@ esta_logado();
                                         <td><b><?= $v->empresa_agenda ?></b> <br> <?= $v->CNPJCPF_agenda ?></td>
                                         <td><b><?= $v->contato_agenda ?></b> <br> <?= $v->email_agenda ?></td>
                                         <td class="text-center"><?= $v->fone1_agenda ?><br><?= $v->fone2_agenda ?><br><?= $v->fone3_agenda ?></td>
-                                        <td><?= $v->nbanco_agenda ?> - <?= $v->nomebanco_agenda ?></td>
-                                        <td><?= $v->agencia_agenda ?> / <?= $v->conta_agenda ?> / <?= $v->operacao_agenda ?></td>
+                                        <td class="text-center"><?= $v->nbanco_agenda ?> - <?= $v->nomebanco_agenda ?></td>
+                                        <td class="text-center"><?= $v->agencia_agenda ?> / <?= $v->conta_agenda ?> / <?= $v->operacao_agenda ?></td>
                                         <td><?= $v->observacao_agenda ?></td>
 
 

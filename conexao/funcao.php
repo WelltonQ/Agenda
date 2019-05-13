@@ -1,5 +1,6 @@
 <?php
 
+
 function edita($empresa, $CNPJCPF, $contato, $email, $fone1, 
 $fone2, $fone3, $nbanco, $nomebanco, $agencia, $conta, $operacao, 
 $observacao, $id) {
