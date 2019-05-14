@@ -11,7 +11,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 	header("location: admin.php");
 }
 ?>
-
+<br>
+<br>
 <div class="container-fluid">
     <div class="main-content">
         <div class="col-md-12">

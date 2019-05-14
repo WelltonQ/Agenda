@@ -2,6 +2,8 @@
 require_once './template/header.php';
 esta_logado();
 ?>
+<br>
+<br>
 <div class="container-fluid">
     <div class="main-content">
         <div class="col-md-12">
