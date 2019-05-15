@@ -28,7 +28,7 @@ if (isset($_POST['empresa_agenda'])) {
 		header("location: admin.php");
 		die();
 	} else {
-		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possivel editar!</p>';
+		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possível editar!</p>';
 		header("location: admin.php");
 		die();
 	}

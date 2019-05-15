@@ -44,6 +44,7 @@ esta_logado();
 
                             <div class="form-group col-md-4">
                                 <select name="nomebanco_agenda" class="form-control">
+                                    <option value="--">--</option>
                                     <option value="BANCO DO BRASIL">BANCO DO BRASIL</option>
                                     <option value="BRADESCO">BRADESCO</option>
                                     <option value="CAIXA ECONÔMICA FEDERAL">CAIXA ECONÔMICA FEDERAL</option>

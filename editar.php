@@ -54,6 +54,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
                             <div class="form-group col-md-4">
                                 <select name="nomebanco_agenda" class="form-control">
+                                    <option value="--"<?php echo ($agenda->nomebanco_agenda == "--") ? 'selected' : ''; ?>>--</option>
                                     <option value="BANCO DO BRASIL"<?php echo ($agenda->nomebanco_agenda == "BANCO DO BRASIL") ? 'selected' : ''; ?>>BANCO DO BRASIL</option>
                                     <option value="BRADESCO"<?php echo ($agenda->nomebanco_agenda == "BRADESCO") ? 'selected' : ''; ?>>BRADESCO</option>
                                     <option value="CAIXA ECONÔMICA FEDERAL"<?php echo ($agenda->nomebanco_agenda == "CAIXA ECONÔMICA FEDERAL") ? 'selected' : ''; ?>>CAIXA ECONÔMICA FEDERAL</option>

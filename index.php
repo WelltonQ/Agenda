@@ -1,43 +1,77 @@
-<?php require_once './template/header.php'; 
+<?php require_once './template/header.php';
 
 if (isset($_SESSION['usuario_logado'])) {
     header("location: ./admin.php");
 }
 
 ?>
+<style type="text/css">
+    div#corpo-form {
+        width: 420px;
+        margin: 270px auto 0px auto;
+    }
 
-<div class="container" style="margin: 6% auto">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form method="post" action="">
-                <div class="form-group">
-                    <input type="text" name="txtEmail" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="txtSenha" class="form-control" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">
-                        Logar
-                    </button>
-                </div>
-            </form>
-        </div>
+    input#input-index, button#button-index {
+        width: 400px;
+        margin: 5px;
+        border-radius: 30px;
+        border: 1px solid black;
+        font-size: 12pt;
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+    }
+
+    body#corpo-login {
+        background-image: url("parede.png");
+        background-size: cover;
+        background-position: 50% 70%;
+    }
+
+    body#corpo-login h1 {
+        text-align: center;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a#a {
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+    }
+
+    a#a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body id="corpo-login">
+    <div id="corpo-form">
+        <form method="post" action="">
+            <h1>Entrar</h1>
+            <input id="input-index" type="text" name="txtEmail" placeholder="Usuário">
+            <input id="input-index" type="password" name="txtSenha" autocomplete="off" placeholder="Senha">
+            <button id="button-index" type="submit" class="btn btn-primary">
+                Acessar
+            </button>
+            <a id="a" href="cadastrar.php">Ainda não tem cadastro? <strong>Cadastre-se!</strong></a>
+        </form>
     </div>
-</div>
 
+</body>
 <?php
 
-if(isset($_POST['txtEmail']) && !empty($_POST['txtEmail'])){
-        $email = trim($_POST['txtEmail']);
-        $senha = trim($_POST['txtSenha']);
-        if (login($email, $senha)) {
-            $_SESSION['usuario_logado'] = login($email, $senha);
-            header("location: ./admin.php");
-        } else{
-            echo "erro ao logar";
-        }
+if (isset($_POST['txtEmail']) && !empty($_POST['txtEmail'])) {
+    $email = trim($_POST['txtEmail']);
+    $senha = trim($_POST['txtSenha']);
+    if (login($email, $senha)) {
+        $_SESSION['usuario_logado'] = login($email, $senha);
+        header("location: ./admin.php");
+    } else {
+        echo "erro ao logar";
     }
+}
 
 ?>
 

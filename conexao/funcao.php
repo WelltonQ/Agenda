@@ -75,7 +75,7 @@ $observacao_agenda){
     if ($stmt->rowCount()) {
 		$_SESSION['menssagem'] = ' <p class="alert alert-success text-center"> Cadastrado com sucesso! </p>';
 	} else {
-		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possivel cadastrar!</p>';
+		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possível cadastrar!</p>';
 	}
 
 }

@@ -15,7 +15,6 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agenda</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilo.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
@@ -42,7 +41,7 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
 
 <body>
     <?php if (isset($_SESSION['usuario_logado']->id_usuario) && !empty($_SESSION['usuario_logado']->id_usuario)) : ?>
-      
+
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
 
@@ -58,12 +57,12 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="<?= base_url('logount.php'); ?>">Sair<span class="sr-only">(current)</span></a></li>
-                    </ul>                    
+                    </ul>
                 </div>
 
             </div>
-    </nav>
+        </nav>
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <?php endif; ?>
+        <?php endif; ?>
