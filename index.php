@@ -45,12 +45,18 @@ if (isset($_SESSION['usuario_logado'])) {
         text-decoration: underline;
     }
 </style>
+    <?php
+        if (isset($_SESSION['menssagem'])) {
+        echo $_SESSION['menssagem'];
+        unset($_SESSION['menssagem']);
+        }
+    ?>
 
 <body id="corpo-login">
     <div id="corpo-form">
         <form method="post" action="">
             <h1>Entrar</h1>
-            <input id="input-index" type="text" name="txtEmail" placeholder="Usuário">
+            <input id="input-index" type="text" name="txtEmail" placeholder="Email">
             <input id="input-index" type="password" name="txtSenha" autocomplete="off" placeholder="Senha">
             <button id="button-index" type="submit" class="btn btn-primary">
                 Acessar
@@ -58,7 +64,6 @@ if (isset($_SESSION['usuario_logado'])) {
             <a id="a" href="cadastrar.php">Ainda não tem cadastro? <strong>Cadastre-se!</strong></a>
         </form>
     </div>
-
 </body>
 <?php
 

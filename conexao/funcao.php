@@ -49,6 +49,19 @@ function delete($id) {
 	$stmt->execute();
 }
 
+ function cadastrar_novo_usuario($email, $senha){
+    $sql = "INSERT INTO usuarios (email_usuario, senha_usuario) VALUES (?,?,?)";
+    $stmt = pdo()->prepare($sql);
+    $stmt->bindValue(2,$email);
+    $stmt->bindValue(3,$senha);
+    $stmt->execute();
+    if ($stmt->rowCount()) {
+		$_SESSION['menssagem'] = ' <p class="alert alert-success text-center"> Usuário cadastrado com sucesso! </p>';
+	} else {
+		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possível cadastrar usuário!</p>';
+	}
+}
+
 
 function inserir_novo_contato($id, $empresa_agenda, $CNPJCPF_agenda, $contato_agenda, $email_agenda, $fone1_agenda, 
 $fone2_agenda, $fone3_agenda, $nbanco_agenda, $nomebanco_agenda, $agencia_agenda, $conta_agenda, $operacao_agenda, 
@@ -73,7 +86,7 @@ $observacao_agenda){
     $stmt->bindValue(14,$observacao_agenda);
     $stmt->execute();
     if ($stmt->rowCount()) {
-		$_SESSION['menssagem'] = ' <p class="alert alert-success text-center"> Cadastrado com sucesso! </p>';
+		$_SESSION['menssagem'] = ' <p class="alert alert-success text-center">Cadastrado com sucesso! </p>';
 	} else {
 		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possível cadastrar!</p>';
 	}
