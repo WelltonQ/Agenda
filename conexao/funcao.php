@@ -50,15 +50,21 @@ function delete($id) {
 }
 
  function cadastrar_novo_usuario($email, $senha){
-    $sql = "INSERT INTO usuarios (email_usuario, senha_usuario) VALUES (?,?,?)";
+    $sql = "SELECT id_usuario FROM usuarios WHERE email_usuario = :1";
     $stmt = pdo()->prepare($sql);
-    $stmt->bindValue(2,$email);
-    $stmt->bindValue(3,$senha);
+    $stmt->bindValue(":1", $email);
     $stmt->execute();
-    if ($stmt->rowCount()) {
-		$_SESSION['menssagem'] = ' <p class="alert alert-success text-center"> Usuário cadastrado com sucesso! </p>';
-	} else {
-		$_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, não foi possível cadastrar usuário!</p>';
+    if($stmt->rowCount() > 0){
+        $_SESSION['menssagem'] = '<p class="alert alert-danger text-center">Erro, email já cadastrado!</p>';
+        return false;
+    } else {
+    $sql = "INSERT INTO usuarios (email_usuario, senha_usuario) VALUES (?,?)";
+    $stmt = pdo()->prepare($sql);
+    $stmt->bindValue(1,$email);
+    $stmt->bindValue(2,$senha);
+    $stmt->execute();
+        $_SESSION['menssagem'] = ' <p class="alert alert-success text-center"> Usuário cadastrado com sucesso! </p>';
+        return true;
 	}
 }
 

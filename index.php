@@ -74,7 +74,8 @@ if (isset($_POST['txtEmail']) && !empty($_POST['txtEmail'])) {
         $_SESSION['usuario_logado'] = login($email, $senha);
         header("location: ./admin.php");
     } else {
-        echo "erro ao logar";
+        $_SESSION['menssagem'] = ' <p class="alert alert-danger text-center">Por favor, verifique seu email ou senha.</p>';
+        header("location: index.php");
     }
 }
 
