@@ -47,7 +47,7 @@ a#a:hover {
 <div id="corpo-form">
     <form action="cadastrar_final.php" method="post">
         <h1>Cadastrar</h1>
-        <input id="input-index" type="text" name="email_usuario" placeholder="Email">
+        <input id="input-index" type="email" name="email_usuario" placeholder="Email">
         <input id="input-index" type="password" name="senha_usuario" autocomplete="off" placeholder="Senha">
         <button id="button-index" type="submit" class="btn btn-primary">
             Criar

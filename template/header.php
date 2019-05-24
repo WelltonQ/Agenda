@@ -2,6 +2,7 @@
 define('DISE', DIRECTORY_SEPARATOR);
 $paths = $_SERVER['DOCUMENT_ROOT'] . $_SERVER['REQUEST_URI'];
 $explodir = explode("/", $paths);
+//precisou ser alterado para subir para Intranet, foi retirado o ". DISE" na linha 6 e add ". "minha_agenda" ." na linha 7
 $pathok = $explodir[0] . DISE . $explodir[1] . DISE . $explodir[2] . DISE . $explodir[3] . DISE;
 include_once $pathok . "vendor" . DISE . "autoload.php";
 ?>
@@ -14,10 +15,12 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agenda</title>
+    <link rel="shortcut icon" href="agenda.png" type="image/x-png"/>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/javascriptpersonalizado.js"></script>
     <link rel="stylesheet" type="text/css" href="">
     <link rel="stylesheet" href="<?= base_url('assets/node_modules/bootstrap/dist/css/bootstrap.min.css') ?>">
     <style type="text/css">
@@ -28,7 +31,6 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
         td {
             word-wrap: break-word;
         }
-
         footer {
             position: absolute;
             bottom: 0;
@@ -44,12 +46,11 @@ include_once $pathok . "vendor" . DISE . "autoload.php";
 
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
-
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?= base_url(); ?>">Agenda</a>
-                    <form class="navbar-form navbar-left" method="POST" id="form-pesquisa" action="">
+                    <form class="navbar-form navbar-left" id="form-pesquisa">
                         <div class="input-group">
-                            <input id="pesquisa" name="pesquisa" type="text" class="input-search form-control" placeholder="Pesquisar contato...">
+                            <input id="busca" type="text" class="input-search form-control" autocomplete="off" placeholder="Pesquisar contato...">
                         </div>
                     </form>
                 </div>
