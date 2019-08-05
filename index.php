@@ -25,7 +25,7 @@ if (isset($_SESSION['usuario_logado'])) {
     body#corpo-login {
         background-image: url("parede.png");
         background-size: cover;
-        background-position: 50% 70%;
+        background-position: 50% 72%;
     }
 
     body#corpo-login h1 {

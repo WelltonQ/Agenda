@@ -1,5 +1,4 @@
 <?php require_once './template/header.php';
-
 ?>
 
 <style type="text/css">
@@ -22,7 +21,7 @@ input#input-index, button#button-index {
 body#corpo-login {
     background-image: url("parede.png");
     background-size: cover;
-    background-position: 50% 70%;
+    background-position: 50% 80%;
 }
 
 body#corpo-login h1 {
@@ -42,13 +41,19 @@ a#a:hover {
     text-decoration: underline;
 }
 </style>
-
+<?php
+    if (isset($_SESSION['menssagem'])) {
+    echo $_SESSION['menssagem'];
+    unset($_SESSION['menssagem']);
+    }
+?>
 <body id="corpo-login">
 <div id="corpo-form">
     <form action="cadastrar_final.php" method="post">
         <h1>Cadastrar</h1>
         <input id="input-index" type="email" name="email_usuario" placeholder="Email">
         <input id="input-index" type="password" name="senha_usuario" autocomplete="off" placeholder="Senha">
+        <input id="input-index" type="password" name="conf_senha_usuario" autocomplete="off" placeholder="Confirmar Senha">
         <button id="button-index" type="submit" class="btn btn-primary">
             Criar
         </button>
